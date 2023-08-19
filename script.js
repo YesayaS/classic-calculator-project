@@ -4,15 +4,18 @@ const operator = ["/", "x", "+", "-"];
 
 getButtonKey();
 
+let maxLength = 11;
 let toCalculate = ["0", "", "0"];
 let toCalculateIndex = 0;
 let reset = false;
 
 function updateDisplay() {
   operationDisplay.innerHTML = toCalculate[0] + " " + toCalculate[1];
-
   resultDisplay.innerHTML =
     toCalculateIndex === 0 ? toCalculate[0] : toCalculate[2];
+  if (resultDisplay.innerHTML.length > maxLength) {
+    resultDisplay.innerHTML = "Too Long :(";
+  }
 }
 
 function storeVariable(key) {
@@ -38,9 +41,11 @@ function storeVariable(key) {
 }
 
 function handleNumber(key) {
-  toCalculate[toCalculateIndex] === "0"
-    ? (toCalculate[toCalculateIndex] = key)
-    : (toCalculate[toCalculateIndex] += key);
+  if (toCalculate[toCalculateIndex].length < maxLength) {
+    toCalculate[toCalculateIndex] === "0"
+      ? (toCalculate[toCalculateIndex] = key)
+      : (toCalculate[toCalculateIndex] += key);
+  }
 }
 
 function otherOperate(key) {
