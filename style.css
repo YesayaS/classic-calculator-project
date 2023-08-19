@@ -82,11 +82,11 @@ button:hover{
  filter: brightness(85%);
 }
 
-button:active{
+button:active:enabled{
     scale: 0.95;
 }
 
-[data-key="+/-"]{
-    color: var(--main-dark);
-    background:var(--main-dark);
+button:disabled,
+button[disabled]{
+    filter: brightness(50%);
 }

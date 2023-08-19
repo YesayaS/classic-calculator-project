@@ -39,3 +39,5 @@ function createButtons() {
     buttonsContainer.appendChild(hGrid);
   }
 }
+
+document.querySelector(`[data-key="+/-"]`).disabled = true;
