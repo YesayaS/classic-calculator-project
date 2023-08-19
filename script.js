@@ -75,7 +75,9 @@ function otherOperate(key) {
     case "+/-":
       break;
     case ".":
-      toCalculate[toCalculateIndex] += key;
+      if (!toCalculate[toCalculateIndex].includes(".")) {
+        toCalculate[toCalculateIndex] += key;
+      }
       break;
   }
 }
